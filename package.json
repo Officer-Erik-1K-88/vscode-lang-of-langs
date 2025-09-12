@@ -1,12 +1,12 @@
 {
-    "name": "vscode-ebnf",
-    "displayName": "EBNF Tools",
-    "description": "EBNF Tools for Visual Studio Code",
-    "version": "1.4.0",
-    "publisher": "igochkov",
+    "name": "vscode-lang-of-langs",
+    "displayName": "Language of Languages Tools",
+    "description": "Tools for \"Language of Languages\" in Visual Studio Code",
+    "version": "1.0.0",
+    "publisher": "Officer Erik 1K-88",
     "author": {
-        "name": "Ivaylo Gochkov",
-        "url": "https://github.com/igochkov"
+        "name": "Officer Erik 1K-88",
+        "url": "https://github.com/Officer-Erik-1K-88"
     },
     "icon": "images/icon.png",
     "engines": {
@@ -32,14 +32,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/igochkov/vscode-ebnf.git"
+        "url": "https://github.com/Officer-Erik-1K-88/vscode-lang-of-langs.git"
     },
-    "homepage": "https://github.com/igochkov/vscode-ebnf",
+    "homepage": "https://github.com/Officer-Erik-1K-88/vscode-lang-of-langs",
     "bugs": {
-        "url": "https://github.com/igochkov/vscode-ebnf/issues"
-    },
-    "sponsor": {
-        "url": "https://github.com/sponsors/igochkov"
+        "url": "https://github.com/Officer-Erik-1K-88/vscode-lang-of-langs/issues"
     },
     "contributes": {
         "languages": [

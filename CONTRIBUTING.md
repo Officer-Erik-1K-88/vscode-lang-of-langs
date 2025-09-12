@@ -10,13 +10,13 @@ the developers managing and developing this open source project. In return,
 they should reciprocate that respect in addressing your issue or assessing
 patches and features.
 
-
 ## Using the issue tracker
 
 The issue tracker is the preferred channel for [bug reports](#bug-reports),
 [features requests](#feature-requests) and
 [submitting pull requests](#pull-requests), but please respect the
 following restrictions:
+
 * Please **do not** use the issue tracker for personal support requests.  Stack
   Overflow is a better place to get help.
 
@@ -26,10 +26,9 @@ following restrictions:
 * Please **do not** open issues or pull requests which *belongs to* third party
   components.
 
-
 ## Bug reports
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository.
+A bug is a *demonstrable problem* that is caused by the code in the repository.
 Good bug reports are extremely helpful, so thanks!
 
 Guidelines for bug reports:
@@ -44,7 +43,6 @@ Guidelines for bug reports:
    [SSCCE](http://www.sscce.org/) and a live example.
    Uploading the project on cloud storage (OneDrive, DropBox, et el.)
    or creating a sample GitHub repository is also helpful.
-
 
 A good bug report shouldn't leave others needing to chase you up for more
 information. Please try to be as detailed as possible in your report. What is
@@ -70,14 +68,12 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-
 ## Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
 fits with the scope and aims of the project. It's up to *you* to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
-
 
 ## Pull requests
 
