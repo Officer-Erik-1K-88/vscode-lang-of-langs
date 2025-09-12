@@ -167,7 +167,8 @@
         "build": "webpack --mode development",
         "package": "webpack --mode production",
         "lint": "eslint src",
-        "test": "jest"
+        "test": "jest",
+        "update-lock": "npm install --package-lock-only"
     },
     "devDependencies": {
         "@types/jest": "^30.0.0",

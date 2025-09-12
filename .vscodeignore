@@ -13,8 +13,8 @@ webpack.config.js
 syntaxes/README.md
 syntaxes/ebnf.tmLanguage.yaml
 
-CHANGELOG.md
 CONTRIBUTING.md
 ISSUE_TEMPLATE.md
+vsc-extension-quickstart.md
 
 !dist/**/*.js.map

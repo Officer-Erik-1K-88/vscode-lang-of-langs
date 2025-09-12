@@ -1,4 +1,4 @@
-// Generated from d:/projects/Private/vscode-ebnf/grammar/EBNFParser.g4 by ANTLR 4.13.1
+// Generated from c:/Users/Access Point/Documents/programming/VS Code/extensions/vscode-lang-of-langs/grammar/EBNFParser.g4 by ANTLR 4.13.1
 
 import * as antlr from "antlr4ng";
 import { Token } from "antlr4ng";
