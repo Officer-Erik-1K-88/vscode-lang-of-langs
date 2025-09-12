@@ -2,8 +2,8 @@
     "name": "vscode-lang-of-langs",
     "displayName": "Language of Languages Tools",
     "description": "Tools for \"Language of Languages\" in Visual Studio Code",
-    "version": "1.0.0",
-    "publisher": "Officer Erik 1K-88",
+    "version": "0.1.0",
+    "publisher": "airent-anitainment",
     "author": {
         "name": "Officer Erik 1K-88",
         "url": "https://github.com/Officer-Erik-1K-88"
