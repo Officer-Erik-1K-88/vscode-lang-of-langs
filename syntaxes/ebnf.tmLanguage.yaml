@@ -4,30 +4,30 @@ fileTypes: [ebnf]
 uuid: 18f41b05-a72e-43ad-b5a5-508ce8fbafbc
 
 patterns:
-  - include: '#syntax'
+    - include: '#syntax'
 
 repository:
     brackets:
         patterns:
             - name: punctuation.definition.bracket.round.begin.ebnf
-              match: '\('
+                match: '\('
             - name: punctuation.definition.bracket.round.end.ebnf
-              match: '\)'
+                match: '\)'
             - name: punctuation.definition.bracket.square.begin.ebnf
-              match: '\['
+                match: '\['
             - name: punctuation.definition.bracket.square.end.ebnf
-              match: '\]'
+                match: '\]'
             - name: punctuation.definition.bracket.curly.begin.ebnf
-              match: '\{'
+                match: '\{'
             - name: punctuation.definition.bracket.curly.end.ebnf
-              match: '\}'
+                match: '\}'
 
     special-characters:
         patterns:
             - name: punctuation.terminator.ebnf
-              match: '[;\.]'
+                match: '[;\.]'
             - name: punctuation.separator.ebnf
-              match: ':'
+                match: ':'
 
     concatenate-symbol:
         name: keyword.operator.concatenate.ebnf
@@ -62,17 +62,17 @@ repository:
         name: string.quoted.ebnf
         patterns:
             - name: string.quoted.single.ebnf
-              begin: \'
-              end: \'
-              patterns:
-                - match: \\.
-                  name: constant.character.escape.ebnf
+                begin: \'
+                end: \'
+                patterns:
+                    - match: \\.
+                    name: constant.character.escape.ebnf
             - name: string.quoted.double.ebnf
-              begin: \"
-              end: \"
-              patterns:
-                - match: \\.
-                  name: constant.character.escape.ebnf
+                begin: \"
+                end: \"
+                patterns:
+                    - match: \\.
+                    name: constant.character.escape.ebnf
 
     special-sequence:
         comment: "The meaning of a <special sequence> is not defined in the standard metalanguage."
@@ -85,7 +85,7 @@ repository:
             '0': { name: punctuation.definition.special-sequence.end.ebnf }
         patterns:
             - match: '[^?]+'
-              name: keyword.control.special.content.ebnf
+                name: keyword.control.special.content.ebnf
 
     syntax:
         name: meta.syntax.ebnf
@@ -109,7 +109,7 @@ repository:
         patterns:
             - include: '#comment'
             - name: comment.block.content.ebnf
-              match: '.'
+                match: '.'
 
     syntax-rule:
         comment: "A <syntax rule> defines the sequences of symbols represented by a <meta identifier>"
@@ -180,10 +180,10 @@ repository:
         comment: "The brackets [ and ] or (/ and /) enclose symbols which are optional"
         name: meta.sequence.optional.ebnf
         begin: '(\[|\(\/)'
-        beginCaptures: 
+        beginCaptures:
             '1': { name: punctuation.definition.optional.begin.ebnf }
         end: '(\]|\/\))'
-        endCaptures: 
+        endCaptures:
             '1': { name: punctuation.definition.optional.end.ebnf }
         patterns:
             - include: '#comment'
@@ -195,10 +195,10 @@ repository:
         comment: "The brackets { and } or (: and :) enclose symbols which may be repeated any number of times"
         name: meta.sequence.repeated.ebnf
         begin: '(\{|\(:)'
-        beginCaptures: 
+        beginCaptures:
             '1': { name: punctuation.definition.repeated.begin.ebnf }
         end: '(\}|:\))'
-        endCaptures: 
+        endCaptures:
             '1': { name: punctuation.definition.repeated.end.ebnf }
         patterns:
             - include: '#comment'
@@ -210,10 +210,10 @@ repository:
         comment: "The brackets ( and ) allow any <definitions list> to be a <primary>"
         name: meta.sequence.grouped.ebnf
         begin: '\('
-        beginCaptures: 
+        beginCaptures:
             '0': { name: punctuation.definition.group.begin.ebnf }
         end: '\)'
-        endCaptures: 
+        endCaptures:
             '0': { name: punctuation.definition.group.end.ebnf }
         patterns:
             - include: '#comment'
