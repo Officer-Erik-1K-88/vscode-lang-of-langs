@@ -43,8 +43,9 @@ async function main() {
     console.log(`✔︎ packaged: ${path.relative(ROOT, vsix)}`);
 
     // --- create or update GitHub release -------------------------------------
+    await run(resolveBin("gh"), ["repo", "set-default", "Officer-Erik-1K-88/vscode-lang-of-langs"]);
     let releaseExists = true;
-    console.log(process.env.PATH);
+    
     await run(resolveBin("gh"), ["release", "view", tag], { stdio: "ignore" }).catch(() => { releaseExists = false; });
 
     if (releaseExists) {
