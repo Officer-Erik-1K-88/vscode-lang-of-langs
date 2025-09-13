@@ -1,7 +1,6 @@
 import { SerializationType, spawn, StdioOptions, StdioPipe, StdioPipeNamed } from "node:child_process";
 import { promises as fs, PathLike } from "node:fs";
 import path from "node:path";
-import { Type } from "typescript";
 
 export const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 export const DIST = path.join(ROOT, "dist");

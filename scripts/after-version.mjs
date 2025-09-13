@@ -2,7 +2,7 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { ROOT, DIST, run, fileExists, sayError } from "./functions";
+import { ROOT, DIST, run, fileExists, sayError } from "./functions.mjs";
 
 async function main() {
     // --- sanity: inside a git repo -------------------------------------------

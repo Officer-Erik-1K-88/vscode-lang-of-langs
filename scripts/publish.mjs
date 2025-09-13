@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { run, multiRun, sayError } from './functions';
+import { run, multiRun, sayError } from './functions.mjs';
 
 async function main() {
     // Ensure clean working tree
