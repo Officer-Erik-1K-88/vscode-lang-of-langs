@@ -15,7 +15,7 @@ async function main() {
     const version = pkg.version;
     const safeName = String(pkg.name || "extension").replace("@", "").replaceAll("/", "-").replaceAll(' ', '_');
     const tag = `v${version}`;
-    const vsix = path.join(DIST, `${safeName}-V${version}.vsix`);
+    const vsix = `dist/${safeName}-V${version}.vsix`;
 
     console.log(`ℹ️ Version: ${version}`);
     console.log(`ℹ️ Tag:     ${tag}`);
