@@ -1,8 +1,11 @@
 import { spawn } from "node:child_process";
 import { promises as fs } from "node:fs";
+import { fileURLToPath } from "node:url";
 import path from "node:path";
 
-export const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const __filename = fileURLToPath(import.meta.url); // Old: const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+export const ROOT = path.resolve(__dirname, "..");
 export const DIST = path.join(ROOT, "dist");
 
 /** @typedef {{
