@@ -15,14 +15,22 @@ async function main() {
     const version = pkg.version;
     const safeName = String(pkg.name || "extension").replace("@", "").replaceAll("/", "-").replaceAll(' ', '_');
     const tag = `v${version}`;
-    const vsix = path.join(DIST, `dist/${safeName}-V${version}.vsix`);
+    const vsix = path.join(DIST, `${safeName}-V${version}.vsix`);
 
     console.log(`ℹ️ Version: ${version}`);
     console.log(`ℹ️ Tag:     ${tag}`);
 
     // --- push version commit & tag (created by npm version via vsce publish) ---
     await run("git", ["push", "origin", "HEAD"]);
-    await run("git", ["tag", tag]);
+    await run("git", ["tag", '-a', tag, '-m', `Version ${version}`]).catch((err) => {
+        if (String(err).includes("already exists")) {
+            console.log(`→ Tag ${tag} already exists; continuing.`);
+            return;
+        }
+        throw err;
+    });
+    await run("git", ["push", "origin", tag]);
+    console.log(`✔︎ pushed commit & tag to origin.`);
 
     // --- package VSIX for this version ---------------------------------------
     if (!(await fileExists(DIST))) {
