@@ -40,7 +40,6 @@ export function resolveBin(bin) {
 export function run(bin, args = [], opts = {}) {
     opts.stdio = opts.stdio || "inherit";
     opts.cwd = opts.cwd || ROOT;
-    opts.shell = opts.shell || true;
     console.log(`Running '${bin}':\n\tArguments: ${args.join(' ; ')}\n\tOptions: ${Object.entries(opts).map((val) => val[0]+': '+val[1]).join('; ')};`);
     return new Promise((resolve, reject) => {
         const onResolve = (val) => {

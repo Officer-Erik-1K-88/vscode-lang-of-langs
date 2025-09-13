@@ -44,7 +44,7 @@ async function main() {
 
     // --- create or update GitHub release -------------------------------------
     let releaseExists = true;
-    await run("gh", ["release", "view", tag], { stdio: "ignore" }).catch(() => { releaseExists = false; });
+    await run(resolveBin("gh"), ["release", "view", tag], { stdio: "ignore" }).catch(() => { releaseExists = false; });
 
     if (releaseExists) {
         console.log(`→ Release exists; uploading asset (with --clobber)…`);
