@@ -31,27 +31,25 @@ export const DIST = path.join(ROOT, "dist");
  * @param {OptionsType} [opts]
  */
 export function run(bin, args = [], opts = {}) {
-    if (!Object.hasOwn(opts, 'stdio')) {
-        opts.stdio = "inherit";
-    }
-    if (!Object.hasOwn(opts, 'cwd')) {
-        opts.cwd = ROOT;
-    }
+    opts.stdio = opts.stdio || "inherit";
+    opts.cwd = opts.cwd || ROOT;
+    opts.shell = opts.shell || true;
     console.log(`Running '${bin}':\n\tArguments: ${args.join(' ; ')}\n\tOptions: ${Object.entries(opts).map((val) => val[0]+': '+val[1]).join('; ')};`);
     return new Promise((resolve, reject) => {
-        const p = spawn(bin, args, opts);
-        p.on("close", (code) => (code === 0 ? resolve(null) : reject(new Error(`${bin} ${args.join(" ")} exited with ${code}`))));
-        p.on("error", reject);
-    }).then(
-        (val) => {
+        const onResolve = (val) => {
+            resolve(val);
             console.log(`Successful running of '${bin}'`);
             return val;
-        },
-        (err) => {
+        };
+        const onReject = (err) => {
+            reject(err);
             console.log(`Failed running of '${bin}'`);
             return err;
-        }
-    );
+        };
+        const p = spawn(bin, args, opts);
+        p.on("close", (code) => (code === 0 ? onResolve(null) : onReject(new Error(`${bin} ${args.join(" ")} exited with ${code}`))));
+        p.on("error", onReject);
+    });
 }
 
 /**
