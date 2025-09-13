@@ -8,6 +8,13 @@ const __dirname = path.dirname(__filename);
 export const ROOT = path.resolve(__dirname, "..");
 export const DIST = path.join(ROOT, "dist");
 
+export function resolveBin(bin) {
+    if (process.platform === "win32") {
+        return `${bin}.exe`; // or `${bin}.cmd` if needed
+    }
+    return bin;
+}
+
 /** @typedef {{
  *  signal?: AbortSignal,
  *  uid?: number, gid?: number,

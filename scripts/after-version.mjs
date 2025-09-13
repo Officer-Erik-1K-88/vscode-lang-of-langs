@@ -2,7 +2,7 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { ROOT, DIST, run, fileExists, sayError } from "./functions.mjs";
+import { ROOT, DIST, run, fileExists, sayError, resolveBin } from "./functions.mjs";
 
 async function main() {
     // --- sanity: inside a git repo -------------------------------------------
@@ -48,10 +48,10 @@ async function main() {
 
     if (releaseExists) {
         console.log(`→ Release exists; uploading asset (with --clobber)…`);
-        await run("gh", ["release", "upload", tag, vsix, "--clobber"]);
+        await run(resolveBin("gh"), ["release", "upload", tag, vsix, "--clobber"]);
     } else {
         console.log(`→ Creating release ${tag}…`);
-        await run("gh", ["release", "create", tag, vsix, "--title", tag, "--generate-notes"]);
+        await run(resolveBin("gh"), ["release", "create", tag, vsix, "--title", tag, "--generate-notes"]);
     }
 
     console.log(`✅ Done: pushed ${tag}, created/updated GitHub Release, attached VSIX.`);
