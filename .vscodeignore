@@ -1,21 +1,30 @@
 .vscode
 .gitignore
+.git
+.github
 node_modules
 grammar/
 examples/
 test/
+tests/
 docs/
 src/
 scripts/
-dist/**/*.vsix
+**/*.vsix
 out/
 **/*.ts
 tsconfig.json
 webpack.config.js
+.vscode-test.mjs
+eslint.config.js
+.prettierignore
+.prettierrc
+jest.config.js
 
 syntaxes/README.md
 syntaxes/ebnf.tmLanguage.yaml
 
+ROADMAP.md
 CONTRIBUTING.md
 ISSUE_TEMPLATE.md
 vsc-extension-quickstart.md
