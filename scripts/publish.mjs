@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { run, multiRun, sayError } from './functions.ts';
+import { run, multiRun, sayError } from './functions';
 
 async function main() {
     // Ensure clean working tree
