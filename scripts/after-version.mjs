@@ -44,6 +44,7 @@ async function main() {
 
     // --- create or update GitHub release -------------------------------------
     let releaseExists = true;
+    console.log(process.env.PATH);
     await run(resolveBin("gh"), ["release", "view", tag], { stdio: "ignore" }).catch(() => { releaseExists = false; });
 
     if (releaseExists) {
