@@ -57,6 +57,11 @@ async function main() {
     }
 
     console.log(`✅ Done: pushed ${tag}, created/updated GitHub Release, attached VSIX.`);
+
+    // --- create marker file so publish knows we ran ------------------------
+    if (process.env.POSTVERSION_MARKER) {
+        try { await fs.writeFile(process.env.POSTVERSION_MARKER); } catch {}
+    }
 }
 
 main().catch((err) => {

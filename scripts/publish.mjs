@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import os from "node:os";
+import crypto from "node:crypto";
 import { run, multiRun, sayError } from './functions.mjs';
 
 async function main() {
@@ -23,8 +27,20 @@ async function main() {
     }
     pubArgs.push("-m", "chore(release): %s");
 
-    await run("vsce", pubArgs);
-    
+    const marker = path.join(os.tmpdir(), `postversion-${crypto.randomUUID()}.flag`);
+
+    await run("vsce", pubArgs, { shell: true , env: { ...process.env, POSTVERSION_MARKER: marker }});
+
+    // 2) Decide whether to run postversion yourself
+let ran = false;
+try { await fs.access(marker); ran = true; } catch {}
+
+    if (!ran) {
+        console.log(`→ Running GitHub Release script…`);
+        await run("node", ["scripts/after-version.mjs"], { shell: true, env: { ...process.env, POSTVERSION_MARKER: marker }, });
+    } else {
+        console.log(`→ GitHub Release script already ran (via vsce); skipping.`);
+    }
 
     console.log("✅ New Release Published to Marketplace.");
 }
@@ -32,4 +48,7 @@ async function main() {
 main().catch((err) => {
     sayError("✗ publish failed:", err);
     process.exit(1);
+}).finally(async () => {
+    // do nothing;
+    try { await fs.unlink(marker); } catch {}
 });
