@@ -10,7 +10,12 @@ export const DIST = path.join(ROOT, "dist");
 
 export function resolveBin(bin) {
     if (process.platform === "win32") {
-        return `${bin}.cmd`; // or `${bin}.exe` if needed
+        if (bin === "gh") {
+            return "C:\\Program Files\\GitHub CLI\\gh.exe"; // gh is gh.exe on Windows
+        }
+        if (!bin.endsWith(".exe") && !bin.endsWith(".cmd") && !bin.endsWith(".bat")) {
+            return `${bin}.exe`; // or `${bin}.cmd` if needed
+        }
     }
     return bin;
 }
