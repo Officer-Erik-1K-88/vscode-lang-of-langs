@@ -168,7 +168,12 @@
         "package": "webpack --mode production",
         "lint": "eslint src",
         "test": "jest",
-        "update-lock": "npm install --package-lock-only"
+        "update-lock": "npm install --package-lock-only",
+        "release": "node ./scripts/publish.mjs",
+        "release:patch": "npm run release -- patch",
+        "release:minor": "npm run release -- minor",
+        "release:major": "npm run release -- major",
+        "postversion": "node ./scripts/after-version.mjs"
     },
     "devDependencies": {
         "@types/jest": "^30.0.0",

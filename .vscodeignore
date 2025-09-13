@@ -6,7 +6,10 @@ examples/
 test/
 docs/
 src/
+scripts/
+dist/**/*.vsix
 out/
+**/*.ts
 tsconfig.json
 webpack.config.js
 
